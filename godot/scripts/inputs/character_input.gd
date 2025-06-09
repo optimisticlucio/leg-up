@@ -13,7 +13,9 @@ func _init(left = false, right = false, jump = false, activate = false):
 	self.activate = activate;
 
 static func get_current_inputs():
-	return CharacterInput.new(Input.is_action_pressed("left"), 
-		Input.is_action_pressed("right"), 
+	return CharacterInput.new(
+		Input.is_action_pressed("left") && !Input.is_action_pressed("right"), 
+		Input.is_action_pressed("right") && !Input.is_action_pressed("left"), 
 		Input.is_action_pressed("jump"), 
-		Input.is_action_pressed("activate"));
+		Input.is_action_pressed("activate")
+		);
