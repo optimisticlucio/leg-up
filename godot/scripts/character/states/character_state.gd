@@ -7,14 +7,14 @@ func _init(parent_character: Character):
 	self.parent_character = parent_character;
 
 func enter_state() -> void:
-	push_error("UNIMPLEMENTED ENTER_STATE IN " + state_name);
+	pass
 
 func act() -> void:
 	push_error("UNIMPLEMENTED ACT IN " + state_name);
 
-func get_next_state() -> CharacterState:
+func get_next_state(characterInput: CharacterInput) -> CharacterState:
 	push_error("UNIMPLEMENTED GET_NEXT_STATE IN " + state_name);
 	return self;
 
 func exit_state() -> void:
-	push_error("UNIMPLEMENTED EXIT_STATE IN " + state_name);
+	pass
