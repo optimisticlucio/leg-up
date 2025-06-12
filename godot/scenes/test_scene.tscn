@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://gik6syys1f8i"]
+[gd_scene load_steps=3 format=3 uid="uid://gik6syys1f8i"]
+
+[ext_resource type="PackedScene" uid="uid://b7awwjh17sn1r" path="res://scenes/simple_platform.tscn" id="1_j8ivh"]
+[ext_resource type="PackedScene" uid="uid://ci8xqtmxgy6oj" path="res://scenes/characters/assistant.tscn" id="2_nd71p"]
 
 [node name="Test Scene" type="Node2D"]
+
+[node name="SimplePlatform" parent="." instance=ExtResource("1_j8ivh")]
+position = Vector2(466, 551)
+scale = Vector2(18.7349, 2.26018)
+
+[node name="Assistant" parent="." instance=ExtResource("2_nd71p")]
+position = Vector2(457, 94)

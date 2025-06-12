@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci8xqtmxgy6oj"]
+
+[ext_resource type="Script" uid="uid://dhee8c4mw0m6i" path="res://scripts/character/character.gd" id="1_ii4nk"]
+
+[sub_resource type="Animation" id="Animation_ii4nk"]
+resource_name = "idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8bam"]
+_data = {
+&"idle": SubResource("Animation_ii4nk")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii4nk"]
+size = Vector2(40, 40)
+
+[node name="Assistant" type="CharacterBody2D"]
+script = ExtResource("1_ii4nk")
+character_name = "Assistant"
+metadata/_custom_type_script = "uid://dhee8c4mw0m6i"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5226, 0.64701, 0.78, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x8bam")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ii4nk")
