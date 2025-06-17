@@ -2,20 +2,29 @@ class_name FallState
 extends CharacterState
 
 var gravity: float = GlobalVariables.DEFAULT_GRAVITY;
+
 static var MAX_FALL_SPEED: float = 700;
+static var JUMP_STRENGTH: float = 650;
 
 func _init(parent_character: Character, momentum: Vector2 = Vector2.ZERO):
 	super(parent_character);
 	state_name = "Fall State";
 	parent_character.velocity = momentum;
 
+static func GetJumpingState(parent_character: Character, momentum: Vector2 = Vector2.ZERO):
+	var newState = FallState.new(parent_character, momentum + Vector2(0, -JUMP_STRENGTH));
+	return newState;
+
 func enter_state() -> void:
 	pass
 
-func act() -> void:
-	# TODO: Update velocity according to gravity.
+func act(characterInput: CharacterInput) -> void:
+	if (parent_character.velocity.y < 0 && !characterInput.jump): 
+		parent_character.velocity.y = 0;
+	
 	if (parent_character.velocity.y < MAX_FALL_SPEED):
 		parent_character.velocity.y += gravity * GlobalVariables.TICK_RATE;
+	
 	parent_character.deterministic_move_and_slide();
 
 func get_next_state(characterInput: CharacterInput) -> CharacterState:

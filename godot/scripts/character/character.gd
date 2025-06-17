@@ -25,7 +25,7 @@ func state_machine_tick(characterInput: CharacterInput):
 		next_state.enter_state();
 		current_state = next_state;
 	
-	current_state.act();
+	current_state.act(characterInput);
 
 func deterministic_move_and_slide():
 	latest_collision = move_and_collide(velocity * GlobalVariables.TICK_RATE);

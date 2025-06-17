@@ -9,7 +9,7 @@ func _init(parent_character: Character):
 func enter_state() -> void:
 	pass
 
-func act() -> void:
+func act(characterInput: CharacterInput) -> void:
 	push_error("UNIMPLEMENTED ACT IN " + state_name);
 
 func get_next_state(characterInput: CharacterInput) -> CharacterState:

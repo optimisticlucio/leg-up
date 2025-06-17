@@ -8,16 +8,16 @@ func _init(parent_character: Character):
 func enter_state() -> void:
 	parent_character.velocity = Vector2.ZERO;
 
-func act() -> void:
+func act(characterInput: CharacterInput) -> void:
 	pass
 
 func get_next_state(characterInput: CharacterInput) -> CharacterState:
 	if (!parent_character.deterministic_is_on_floor()):
 		return FallState.new(parent_character);
 	if (characterInput.jump):
-		return self; # TODO - pass jump.
+		return FallState.GetJumpingState(parent_character);
 	if (characterInput.left || characterInput.right):
-		return self; # TODO - pass walking.
+		return WalkState.new(parent_character, characterInput.right);
 	return self;
 
 func exit_state() -> void:
