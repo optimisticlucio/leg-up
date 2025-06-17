@@ -15,4 +15,13 @@ func _deferred_goto_scene(new_scene_path):
 	current_scene.free()
 	var s = ResourceLoader.load(new_scene_path)
 	current_scene = s.instantiate()
+	
+	if (current_scene is Level):
+		setup_new_level(current_scene)
+		
 	get_tree().root.add_child(current_scene)
+
+func setup_new_level(scene: Level):
+	scene.level_phase = Level.LevelPhase.ASSISTANT_PHASE;
+	# TODO
+	

@@ -25,6 +25,8 @@ func act(characterInput: CharacterInput) -> void:
 	if (parent_character.velocity.y < MAX_FALL_SPEED):
 		parent_character.velocity.y += gravity * GlobalVariables.TICK_RATE;
 	
+	# TODO: Add footstool
+
 	parent_character.deterministic_move_and_slide();
 
 func get_next_state(characterInput: CharacterInput) -> CharacterState:

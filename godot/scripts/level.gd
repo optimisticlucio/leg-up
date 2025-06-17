@@ -7,3 +7,9 @@ extends Node2D
 
 @export var level_name: String; # The name of the current level
 @export var next_level_path: PackedScene; # The next level that needs to be loaded in.
+
+var level_phase: LevelPhase;
+enum LevelPhase {
+	ASSISTANT_PHASE,
+	ACTOR_PHASE
+}
