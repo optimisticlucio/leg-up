@@ -6,14 +6,32 @@ extends CharacterBody2D
 var initial_state = IdleState;
 var current_state: CharacterState;
 
+var input_replay: CharacterInputHistory;
+var is_playing_replay: bool; # If true, reads from input_replay. If else, writes to.
+
 var latest_collision: KinematicCollision2D; # from deterministic_move_and_slide
 
-func _init() -> void:
+func _init(input_replay: CharacterInputHistory = null, is_playing_replay: bool = false) -> void:
 	print(typeof(initial_state));
 	current_state = initial_state.new(self);
+	
+	if (input_replay == null):
+		self.input_replay = CharacterInputHistory.new();
+	else:
+		self.input_replay = input_replay;
+	
+	self.is_playing_replay = is_playing_replay;
 
 func _physics_process(_delta: float) -> void:
-	state_machine_tick(CharacterInput.get_current_inputs()); # TODO - Check if replay or new.
+	var next_inputs: CharacterInput;
+
+	if (!is_playing_replay):
+		next_inputs = CharacterInput.get_current_inputs();
+		input_replay.write(next_inputs);
+	else:
+		next_inputs = input_replay.read();
+	
+	state_machine_tick(next_inputs);
 
 # Does all the actions of a state machine.
 func state_machine_tick(characterInput: CharacterInput):

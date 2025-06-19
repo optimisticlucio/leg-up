@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci8xqtmxgy6oj"]
+[gd_scene load_steps=5 format=3 uid="uid://cphp10m88wfxl"]
 
-[ext_resource type="Script" uid="uid://dhee8c4mw0m6i" path="res://scripts/character/character.gd" id="1_ii4nk"]
+[ext_resource type="Script" uid="uid://dhee8c4mw0m6i" path="res://scripts/character/character.gd" id="1_rvkus"]
 
 [sub_resource type="Animation" id="Animation_ii4nk"]
 resource_name = "idle"
@@ -14,7 +14,7 @@ _data = {
 size = Vector2(40, 40)
 
 [node name="Assistant" type="CharacterBody2D"]
-script = ExtResource("1_ii4nk")
+script = ExtResource("1_rvkus")
 character_name = "Assistant"
 metadata/_custom_type_script = "uid://dhee8c4mw0m6i"
 
@@ -30,7 +30,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.711544, 0.40975, 1)
+color = Color(0.886275, 0.0196078, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
