@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://s3f7fr5mykuy"]
+
+[ext_resource type="PackedScene" uid="uid://c8jwkw2n308dh" path="res://scenes/characters/exit_doors/actor_exit.tscn" id="1_5h7uh"]
+[ext_resource type="Script" uid="uid://cxh40574j7h2a" path="res://scripts/character/exit_doors/assistant_exit.gd" id="2_u2jk7"]
+
+[node name="AssistantExit" instance=ExtResource("1_5h7uh")]
+script = ExtResource("2_u2jk7")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0, 0.846, 0.94, 1)

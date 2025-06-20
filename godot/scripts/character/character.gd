@@ -23,13 +23,14 @@ func _init(input_replay: CharacterInputHistory = null, is_playing_replay: bool =
 	self.is_playing_replay = is_playing_replay;
 
 func _physics_process(_delta: float) -> void:
-	var next_inputs: CharacterInput;
+	var next_inputs: CharacterInput = CharacterInput.new();
 
 	if (!is_playing_replay):
 		next_inputs = CharacterInput.get_current_inputs();
 		input_replay.write(next_inputs);
 	else:
-		next_inputs = input_replay.read();
+		if (input_replay):
+			next_inputs = input_replay.read();
 	
 	state_machine_tick(next_inputs);
 

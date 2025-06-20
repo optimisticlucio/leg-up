@@ -1,13 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://gik6syys1f8i"]
+[gd_scene load_steps=5 format=3 uid="uid://gik6syys1f8i"]
 
 [ext_resource type="PackedScene" uid="uid://b7awwjh17sn1r" path="res://scenes/simple_platform.tscn" id="1_j8ivh"]
-[ext_resource type="PackedScene" uid="uid://ci8xqtmxgy6oj" path="res://scenes/characters/assistant.tscn" id="2_nd71p"]
+[ext_resource type="Script" uid="uid://bu5hxgydr87w0" path="res://scripts/level.gd" id="1_nd71p"]
+[ext_resource type="PackedScene" uid="uid://c8jwkw2n308dh" path="res://scenes/characters/exit_doors/actor_exit.tscn" id="4_qjeyg"]
+[ext_resource type="PackedScene" uid="uid://s3f7fr5mykuy" path="res://scenes/characters/exit_doors/assistant_exit.tscn" id="5_3qnke"]
 
-[node name="Test Scene" type="Node2D"]
+[node name="Test Scene" type="Node2D" node_paths=PackedStringArray("assistant_spawn_point", "assistant_exit_door", "actor_spawn_point", "actor_exit_door")]
+script = ExtResource("1_nd71p")
+assistant_level_timer = 15.0
+actor_level_timer = 14.0
+assistant_spawn_point = NodePath("assistant_spawn")
+assistant_exit_door = NodePath("AssistantExit")
+actor_spawn_point = NodePath("actor_spawn")
+actor_exit_door = NodePath("ActorExit")
+level_name = "Test Level"
 
 [node name="SimplePlatform" parent="." instance=ExtResource("1_j8ivh")]
-position = Vector2(466, 551)
-scale = Vector2(18.7349, 2.26018)
+position = Vector2(559, 556)
+scale = Vector2(62.8176, 1.19616)
 
-[node name="Assistant" parent="." instance=ExtResource("2_nd71p")]
-position = Vector2(457, 94)
+[node name="SimplePlatform2" parent="." instance=ExtResource("1_j8ivh")]
+position = Vector2(559, 307)
+scale = Vector2(62.8176, 1.19616)
+
+[node name="actor_spawn" type="Marker2D" parent="."]
+position = Vector2(57, 401)
+
+[node name="assistant_spawn" type="Marker2D" parent="."]
+position = Vector2(52, 169)
+
+[node name="ActorExit" parent="." instance=ExtResource("4_qjeyg")]
+position = Vector2(1062, 435)
+
+[node name="AssistantExit" parent="." instance=ExtResource("5_3qnke")]
+position = Vector2(1064, 210)

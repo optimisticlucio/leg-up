@@ -9,13 +9,15 @@ var input_read_index: int; # Points to the first index to read.
 static var ARRAY_BUFFER_MULTIPLIER = 1.2; # Some extra space in case we have extra physics frames.
 
 func _init(how_many_seconds_to_record: float = 5):
+	print("[INPUT HISTORY] Size set to %s" % (Engine.physics_ticks_per_second * how_many_seconds_to_record * ARRAY_BUFFER_MULTIPLIER))
 	input_list.resize(Engine.physics_ticks_per_second * how_many_seconds_to_record * ARRAY_BUFFER_MULTIPLIER);
 	input_write_index = 0;
 	input_read_index = 0;
 
 # Writes an input to history, if array is not full.
 func write(input: CharacterInput):
-	if (input_read_index + 1 == input_write_index):
+	# print("[INPUT HISTORY] writing to index %s, read index is %s" % [input_write_index, input_read_index])
+	if (input_read_index == (input_write_index + 1) % len(input_list)):
 		push_error("Tried to write to an already full CharacterInputHistory. Input dropped!");
 		return;
 	
