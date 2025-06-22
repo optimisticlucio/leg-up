@@ -2,8 +2,8 @@ class_name Level
 extends Node2D
 # Attached to every scene that is a level.
 
-@export var assistant_level_timer: float = 4; # The amount of seconds you have in your first run.
-@export var actor_level_timer: float = 3; # The amoune of seconds you have in your second run.
+@export var assistant_level_timer: float = 40; # The amount of seconds you have in your first run.
+@export var actor_level_timer: float = 30; # The amoune of seconds you have in your second run.
 
 @export var assistant_spawn_point: Marker2D;
 @export var assistant_exit_door: ExitDoor;

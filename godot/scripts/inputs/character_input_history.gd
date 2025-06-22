@@ -30,8 +30,8 @@ func write_current_input():
 
 func read() -> CharacterInput:
 	if (input_read_index == input_write_index):
-		push_error("Tried to read from an empty CharacterInputHistory. returning null!");
-		return null;
+		push_error("Tried to read from an empty CharacterInputHistory. returning empty!");
+		return CharacterInput.new();
 	
 	var input_to_return = input_list[input_read_index];
 	input_read_index += 1;

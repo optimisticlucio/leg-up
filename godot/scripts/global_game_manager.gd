@@ -31,9 +31,7 @@ func switch_to_scene(new_scene_path):
 	_deferred_goto_scene.call_deferred(new_scene_path)
 
 func _deferred_goto_scene(new_scene):
-	current_scene.free()
-
-	var s
+	var s: PackedScene
 	if typeof(new_scene) == TYPE_STRING:
 		s = ResourceLoader.load(new_scene)
 	elif new_scene is PackedScene:
@@ -42,14 +40,17 @@ func _deferred_goto_scene(new_scene):
 		push_error("Invalid scene type passed")
 		return
 
-	current_scene = s.instantiate()
+	get_tree().change_scene_to_packed(s)
 
-	if current_scene is Level:
+	# Optional: if the new scene is a Level, wait for it to be ready before setup
+	await get_tree().process_frame
+	current_scene = get_tree().current_scene;
+	if get_tree().current_scene is Level:
 		setup_new_level()
 
-	get_tree().root.add_child(current_scene)
-
 func start_next_level():
+	level_phase = LevelPhase.ASSISTANT_PHASE;
+	
 	if (current_level.next_level_path):
 		switch_to_scene(current_level.next_level_path);
 	else:

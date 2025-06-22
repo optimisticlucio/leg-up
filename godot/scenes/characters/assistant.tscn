@@ -13,9 +13,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii4nk"]
 size = Vector2(40, 40)
 
-[node name="Assistant" type="CharacterBody2D"]
+[node name="Assistant" type="CharacterBody2D" node_paths=PackedStringArray("bottom_raycasts")]
 script = ExtResource("1_ii4nk")
 character_name = "Assistant"
+bottom_raycasts = [NodePath("RayCast2D"), NodePath("RayCast2D2"), NodePath("RayCast2D3")]
 metadata/_custom_type_script = "uid://dhee8c4mw0m6i"
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -39,3 +40,15 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ii4nk")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-20, 20)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, 20)
+target_position = Vector2(0, 5)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(20, 20)
+target_position = Vector2(0, 5)

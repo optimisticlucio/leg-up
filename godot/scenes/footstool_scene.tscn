@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dp0f24umfn01r"]
+
+[ext_resource type="Script" uid="uid://bu5hxgydr87w0" path="res://scripts/level.gd" id="1_fwu2y"]
+[ext_resource type="PackedScene" uid="uid://b7awwjh17sn1r" path="res://scenes/simple_platform.tscn" id="2_tswvf"]
+[ext_resource type="PackedScene" uid="uid://c8jwkw2n308dh" path="res://scenes/characters/exit_doors/actor_exit.tscn" id="3_0m0nx"]
+[ext_resource type="PackedScene" uid="uid://s3f7fr5mykuy" path="res://scenes/characters/exit_doors/assistant_exit.tscn" id="4_05fph"]
+
+[node name="FootstoolScene" type="Node2D" node_paths=PackedStringArray("assistant_spawn_point", "assistant_exit_door", "actor_spawn_point", "actor_exit_door")]
+script = ExtResource("1_fwu2y")
+assistant_spawn_point = NodePath("Marker2D2")
+assistant_exit_door = NodePath("AssistantExit")
+actor_spawn_point = NodePath("Top Floor/Marker2D")
+actor_exit_door = NodePath("Top Floor/ActorExit")
+level_name = "Footstool Scene"
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(131, 465)
+scale = Vector2(2, 1.88)
+
+[node name="SimplePlatform" parent="." instance=ExtResource("2_tswvf")]
+position = Vector2(553, 588)
+scale = Vector2(54.48, 1)
+
+[node name="AssistantExit" parent="." instance=ExtResource("4_05fph")]
+position = Vector2(1043, 507)
+
+[node name="Top Floor" type="Node2D" parent="."]
+position = Vector2(-2, 68)
+
+[node name="SimplePlatform2" parent="Top Floor" instance=ExtResource("2_tswvf")]
+position = Vector2(158, 254)
+scale = Vector2(11.04, 1)
+
+[node name="Marker2D" type="Marker2D" parent="Top Floor"]
+position = Vector2(156, 147)
+scale = Vector2(2, 1.88)
+
+[node name="SimplePlatform3" parent="Top Floor" instance=ExtResource("2_tswvf")]
+position = Vector2(895, 252)
+scale = Vector2(11.04, 1)
+
+[node name="ActorExit" parent="Top Floor" instance=ExtResource("3_0m0nx")]
+position = Vector2(904, 171)

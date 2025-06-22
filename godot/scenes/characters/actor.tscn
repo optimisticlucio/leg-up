@@ -1,41 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cphp10m88wfxl"]
+[gd_scene load_steps=2 format=3 uid="uid://c3y11t3fvsyda"]
 
-[ext_resource type="Script" uid="uid://dhee8c4mw0m6i" path="res://scripts/character/character.gd" id="1_rvkus"]
+[ext_resource type="PackedScene" uid="uid://ci8xqtmxgy6oj" path="res://scenes/characters/assistant.tscn" id="1_rvkus"]
 
-[sub_resource type="Animation" id="Animation_ii4nk"]
-resource_name = "idle"
+[node name="Actor" instance=ExtResource("1_rvkus")]
+character_name = "Actor"
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8bam"]
-_data = {
-&"idle": SubResource("Animation_ii4nk")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ii4nk"]
-size = Vector2(40, 40)
-
-[node name="Assistant" type="CharacterBody2D"]
-script = ExtResource("1_rvkus")
-character_name = "Assistant"
-metadata/_custom_type_script = "uid://dhee8c4mw0m6i"
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.886275, 0.0196078, 0, 1)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_x8bam")
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ii4nk")
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.668016, 0, 0.127892, 1)

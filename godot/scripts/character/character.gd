@@ -2,6 +2,7 @@ class_name Character
 extends CharacterBody2D
 
 @export var character_name: String = "Name Not Set";
+@export var bottom_raycasts: Array[RayCast2D];
 
 var initial_state = IdleState;
 var current_state: CharacterState;
@@ -10,6 +11,9 @@ var input_replay: CharacterInputHistory;
 var is_playing_replay: bool; # If true, reads from input_replay. If else, writes to.
 
 var latest_collision: KinematicCollision2D; # from deterministic_move_and_slide
+
+@onready var body: CollisionShape2D = $CollisionShape2D;
+
 
 func _init(input_replay: CharacterInputHistory = null, is_playing_replay: bool = false) -> void:
 	print(typeof(initial_state));

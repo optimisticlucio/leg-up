@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://gik6syys1f8i"]
+[gd_scene load_steps=6 format=3 uid="uid://gik6syys1f8i"]
 
 [ext_resource type="PackedScene" uid="uid://b7awwjh17sn1r" path="res://scenes/simple_platform.tscn" id="1_j8ivh"]
 [ext_resource type="Script" uid="uid://bu5hxgydr87w0" path="res://scripts/level.gd" id="1_nd71p"]
+[ext_resource type="PackedScene" uid="uid://dp0f24umfn01r" path="res://scenes/footstool_scene.tscn" id="2_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://c8jwkw2n308dh" path="res://scenes/characters/exit_doors/actor_exit.tscn" id="4_qjeyg"]
 [ext_resource type="PackedScene" uid="uid://s3f7fr5mykuy" path="res://scenes/characters/exit_doors/assistant_exit.tscn" id="5_3qnke"]
 
 [node name="Test Scene" type="Node2D" node_paths=PackedStringArray("assistant_spawn_point", "assistant_exit_door", "actor_spawn_point", "actor_exit_door")]
 script = ExtResource("1_nd71p")
-assistant_level_timer = 15.0
-actor_level_timer = 14.0
+assistant_level_timer = 30.0
+actor_level_timer = 25.0
 assistant_spawn_point = NodePath("assistant_spawn")
 assistant_exit_door = NodePath("AssistantExit")
 actor_spawn_point = NodePath("actor_spawn")
 actor_exit_door = NodePath("ActorExit")
 level_name = "Test Level"
+next_level_path = ExtResource("2_qjeyg")
 
 [node name="SimplePlatform" parent="." instance=ExtResource("1_j8ivh")]
 position = Vector2(559, 556)
