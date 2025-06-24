@@ -5,7 +5,7 @@ var gravity: float = GlobalVariables.DEFAULT_GRAVITY;
 
 static var MAX_FALL_SPEED: float = 700;
 static var JUMP_STRENGTH: float = 600;
-static var HORIZONTAL_ACCELERATION: float = 600;
+static var HORIZONTAL_ACCELERATION: float = 800;
 static var MAX_HORIZONTAL_SPEED: float = 400;
 
 func _init(parent_character: Character, momentum: Vector2 = Vector2.ZERO):
@@ -29,7 +29,7 @@ func act(characterInput: CharacterInput) -> void:
 	
 	# Footstool handling
 	if (parent_character.velocity.y >= 0 && characterInput.jump && another_character_is_below()):
-		parent_character.velocity.y =  -JUMP_STRENGTH;
+		parent_character.velocity.y =  - 1.75 * JUMP_STRENGTH;
 	
 	if (characterInput.right && parent_character.velocity.x < MAX_HORIZONTAL_SPEED):
 		parent_character.velocity.x += HORIZONTAL_ACCELERATION * GlobalVariables.TICK_RATE;
@@ -50,4 +50,7 @@ func another_character_is_below() -> bool:
 	if parent_character.bottom_raycasts == null:
 		return false;
 	
-	return parent_character.bottom_raycasts.all(func(raycast: RayCast2D): return raycast.is_colliding());
+	return parent_character.bottom_raycasts.any(
+		func(raycast: RayCast2D) -> bool: 
+			print(raycast.get_collider())
+			return raycast.get_collider() is CharacterBody2D);

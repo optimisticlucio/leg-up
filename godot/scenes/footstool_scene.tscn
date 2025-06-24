@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dp0f24umfn01r"]
+[gd_scene load_steps=6 format=3 uid="uid://dp0f24umfn01r"]
 
 [ext_resource type="Script" uid="uid://bu5hxgydr87w0" path="res://scripts/level.gd" id="1_fwu2y"]
+[ext_resource type="PackedScene" uid="uid://d2a3f5mbgc6gy" path="res://scenes/game_over.tscn" id="2_0m0nx"]
 [ext_resource type="PackedScene" uid="uid://b7awwjh17sn1r" path="res://scenes/simple_platform.tscn" id="2_tswvf"]
 [ext_resource type="PackedScene" uid="uid://c8jwkw2n308dh" path="res://scenes/characters/exit_doors/actor_exit.tscn" id="3_0m0nx"]
 [ext_resource type="PackedScene" uid="uid://s3f7fr5mykuy" path="res://scenes/characters/exit_doors/assistant_exit.tscn" id="4_05fph"]
@@ -12,6 +13,7 @@ assistant_exit_door = NodePath("AssistantExit")
 actor_spawn_point = NodePath("Top Floor/Marker2D")
 actor_exit_door = NodePath("Top Floor/ActorExit")
 level_name = "Footstool Scene"
+next_level_path = ExtResource("2_0m0nx")
 
 [node name="Marker2D2" type="Marker2D" parent="."]
 position = Vector2(131, 465)

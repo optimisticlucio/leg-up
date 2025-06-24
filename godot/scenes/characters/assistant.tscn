@@ -11,7 +11,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ii4nk"]
-size = Vector2(40, 40)
+size = Vector2(60, 40)
 
 [node name="Assistant" type="CharacterBody2D" node_paths=PackedStringArray("bottom_raycasts")]
 script = ExtResource("1_ii4nk")
@@ -25,9 +25,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -30.0
 offset_top = -20.0
-offset_right = 20.0
+offset_right = 30.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -42,7 +42,7 @@ libraries = {
 shape = SubResource("RectangleShape2D_ii4nk")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-20, 20)
+position = Vector2(-30, 20)
 target_position = Vector2(0, 5)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
@@ -50,5 +50,5 @@ position = Vector2(0, 20)
 target_position = Vector2(0, 5)
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
-position = Vector2(20, 20)
+position = Vector2(30, 20)
 target_position = Vector2(0, 5)

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Leg Up"
-run/main_scene="uid://gik6syys1f8i"
+run/main_scene="uid://bhfsjbpgehnlp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
